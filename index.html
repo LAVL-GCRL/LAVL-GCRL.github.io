@@ -136,10 +136,16 @@
 
           <div class="figure-caption-box">
             <div class="figure-caption-title">
-              Overgeneralization and Limitations of Quasimetric Methods
+              Overgeneralization in Goal-Conoditioned Value Learning
             </div>
             <p>
-              (Left) Visualization of learned goal-conditioned values on antmaze-large-stitch. The red star denotes the goal position. The GCIVL agent with MLP-parameterized value exhibits incorrect generalization, while QRL with IQE does not. (Middle) Ablation experiments on value function architecture. The inductive bias of IQE effectively mitigates overgeneralization. (Right) Performance in maze navigation and robotic manipulation tasks. No single method shows consistently high performance.
+              <strong>(Left)</strong> Visualization of learned goal-conditioned values on antmaze-large-stitch. The red star denotes the goal position. The GCIVL agent with MLP-parameterized value exhibits incorrect generalization, while QRL with IQE does not.
+            </p>
+            <p>
+              <strong>(Middle)</strong> Ablation experiments on value function architecture. The inductive bias of IQE effectively mitigates overgeneralization.
+            </p>
+            <p>
+              <strong>(Right)</strong> Performance in maze navigation and robotic manipulation tasks. No single method shows consistently high performance.
             </p>
           </div>
 
@@ -157,7 +163,13 @@
               <div class="finding-number">Finding 2</div>
               <h4>Limitations of Quasimetric Method</h4>
               <p>
-                Our experiments lead to two key conclusions. (i) The QRL objective induces severe training instability in robotic manipulation tasks, highlighting the necessity of TD learning for achieving robust performance across diverse domains. (ii) While GCIVL with IQE improves upon GCIVL with MLP by mitigating overgeneralization, the IQE itself can degrade performance in some tasks.
+                Our experiments lead to two key conclusions.
+              </p>
+              <p>
+                <strong>(i)</strong> The QRL objective induces severe training instability in robotic manipulation tasks, highlighting the necessity of TD learning for achieving robust performance across diverse domains.
+              </p>
+              <p>
+                <strong>(ii)</strong> While GCIVL with IQE improves upon GCIVL with MLP by mitigating overgeneralization, the IQE itself can degrade performance in some tasks.
               </p>
             </div>
           
