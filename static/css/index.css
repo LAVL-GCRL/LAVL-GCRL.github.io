@@ -1765,3 +1765,39 @@ body {
     font-size: 0.96rem;
   }
 }
+
+/* ============================================================
+   Motivation figure
+   ============================================================ */
+
+.hook-section {
+  padding-top: 1.4rem !important;
+  padding-bottom: 2.2rem !important;
+}
+
+.motivation-figure {
+  margin: 1.2rem auto 1.1rem;
+  max-width: 920px;
+  text-align: center;
+}
+
+.motivation-figure img {
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(30, 64, 175, 0.08);
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.motivation-figure figcaption {
+  color: #444;
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin-top: 0.65rem;
+}
+
+.motivation-text {
+  margin-top: 1rem;
+}
