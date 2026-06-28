@@ -113,42 +113,43 @@
 
   
 
-<section class="section hook-section">
+<section class="section">
   <div class="container is-max-widescreen">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
 
-        <h2 class="title is-3 has-text-centered">
-          Motivation: Bottleneck of Goal-Conditioned Value Learning
-        </h2>
+    <div class="rows">
 
-        <div class="content has-text-justified">
-          <p>
-            Offline goal-conditioned reinforcement learning aims to learn a policy that can reach diverse goals using only a fixed dataset. However, learning reliable goal-conditioned value functions remains challenging, especially in long-horizon tasks where the agent must reason over many intermediate states.
-          </p>
+      <!-- Motivation. -->
+      <div class="rows is-centered">
+        <div class="row is-full-width">
+          <h2 class="title is-3">Motivation: Bottleneck of Goal-Conditioned Value Learning</h2>
+
+          <div class="content has-text-justified">
+          </div>
+
+          <div class="overview-static">
+            <img
+              src="media/figures/overgeneralization.png?v=1"
+              class="interpolation-image"
+              alt="Overgeneralization in goal-conditioned value learning"
+            />
+          </div>
+
+          <br>
+          <br>
+
+          <div class="content has-text-justified">
+            <p>
+              <strong>Bottleneck of goal-conditioned value learning.</strong>
+              Offline goal-conditioned reinforcement learning aims to learn policies that can reach diverse goals from fixed datasets. However, goal-conditioned value functions can suffer from erroneous generalization, assigning high values to state-goal pairs that are not actually reachable from the offline data distribution.
+            </p>
+            <p>
+              This overgeneralization becomes especially problematic in long-horizon tasks, where small value errors can compound and mislead planning. LAVL addresses this bottleneck by aligning value learning with latent representations that capture meaningful goal-reaching structure.
+            </p>
+          </div>
+
         </div>
-
-        <figure class="motivation-figure">
-          <img
-            src="media/figures/overgeneralization.png?v=1"
-            class="interpolation-image"
-            alt="Erroneous value generalization in offline goal-conditioned reinforcement learning"
-          />
-          <figcaption>
-            Erroneous generalization in goal-conditioned value learning can assign high values to state-goal pairs that are not actually reachable from the offline data distribution.
-          </figcaption>
-        </figure>
-
-        <div class="content has-text-justified motivation-text">
-          <p>
-            The key bottleneck is <strong>erroneous value generalization</strong>: a learned value function may incorrectly generalize across state-goal pairs, producing optimistic estimates for goals that are difficult or impossible to reach from the current state. This issue becomes more severe in long-horizon tasks, where small value errors can compound and mislead planning.
-          </p>
-          <p>
-            LAVL addresses this bottleneck by aligning value learning with latent representations that better capture the structure of goal-reaching behavior. This encourages value generalization to follow meaningful latent geometry rather than arbitrary function approximation artifacts.
-          </p>
-        </div>
-
       </div>
+
     </div>
   </div>
 </section>
