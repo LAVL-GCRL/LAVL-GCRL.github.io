@@ -1695,7 +1695,7 @@ body {
 
 .tldr-section {
   padding-top: 0.2rem !important;
-  padding-bottom: 0.7rem !important;
+  padding-bottom: 1.4rem !important;
 }
 
 .hero-tldr-box {
@@ -1710,9 +1710,9 @@ body {
   gap: 0.9rem;
   font-family: 'Google Sans', 'Noto Sans', sans-serif;
   line-height: 1.45;
-  margin: 0 auto;
+  margin: 0 auto 0.8rem;
   max-width: 922px;
-  padding: 0.95rem 1.1rem;
+  padding: 0.9rem 1.05rem;
   text-align: left;
 }
 
@@ -1721,39 +1721,47 @@ body {
   border-radius: 999px;
   color: #fff;
   flex: 0 0 auto;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.04em;
-  padding: 0.38rem 0.65rem;
+  padding: 0.36rem 0.62rem;
   text-transform: uppercase;
 }
 
 .tldr-text {
   color: #111;
-  font-size: 1.04rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
-/* Reduce the gap between TL;DR and heatmap hook */
-.hook-section {
-  padding-top: 1rem !important;
+/* Give the teaser figure a little breathing room */
+.hero.teaser {
+  padding-top: 0.4rem;
+}
+
+.hero.teaser .hero-body {
+  padding-top: 0.5rem;
 }
 
 /* Mobile */
 @media screen and (max-width: 768px) {
+  .tldr-section {
+    padding-bottom: 1.1rem !important;
+  }
+
   .hero-tldr-box {
     align-items: flex-start;
     flex-direction: column;
     gap: 0.55rem;
     max-width: 100%;
-    padding: 0.9rem 1rem;
+    padding: 0.85rem 0.95rem;
   }
 
   .tldr-label {
-    font-size: 0.76rem;
+    font-size: 0.74rem;
   }
 
   .tldr-text {
-    font-size: 0.98rem;
+    font-size: 0.96rem;
   }
 }
