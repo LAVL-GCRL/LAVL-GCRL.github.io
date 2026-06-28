@@ -1920,3 +1920,13 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+.overview-static {
+  margin: 1rem auto 1.2rem;
+}
+
+.overview-static img {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
