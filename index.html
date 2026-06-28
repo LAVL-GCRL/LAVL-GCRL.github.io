@@ -54,7 +54,7 @@
             </div>
           </div>
           <div class="is-size-5 publication-authors">
-            Preprint
+            ICML 2026
           </div>
           <div class="publication-link-row">
             <a class="publication-link-button" href="https://arxiv.org/pdf/2605.25740">
@@ -183,6 +183,78 @@
 </section>
 
 
+
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+
+      <!-- Motivation. -->
+      <div class="rows is-centered">
+        <div class="row is-full-width">
+          <h2 class="title is-3">Latent-Aligned Value Learning (LAVL)</h2>
+          <h3 class="title is-4 mobile-deployment-title">
+            Latent Alignment Network (LAN)
+          </h3>
+
+          <figure class="overview-static">
+            <img
+              src="media/figures/overgeneralization.png?v=1"
+              class="interpolation-image"
+              alt="Erroneous value generalization in offline goal-conditioned reinforcement learning"
+            />
+          </figure>
+
+          <div class="figure-caption-box">
+            <div class="figure-caption-title">
+              Overgeneralization in Goal-Conoditioned Value Learning
+            </div>
+            <p>
+              <strong>(Left)</strong> Visualization of learned goal-conditioned values on antmaze-large-stitch. The red star denotes the goal position. The GCIVL agent with MLP-parameterized value exhibits incorrect generalization, while QRL with IQE does not.
+            </p>
+            <p>
+              <strong>(Middle)</strong> Ablation experiments on value function architecture. The inductive bias of IQE effectively mitigates overgeneralization.
+            </p>
+            <p>
+              <strong>(Right)</strong> Performance in maze navigation and robotic manipulation tasks. No single method shows consistently high performance.
+            </p>
+          </div>
+
+          <div class="findings-grid">
+
+            <div class="finding-card">
+              <div class="finding-number">Finding 1</div>
+              <h4>Structural Inductive Bias</h4>
+              <p>
+                While the standard MLP-parameterized value function suffers from value overgeneralization, value functions with structural inductive bias can mitigate overgeneralization.
+              </p>
+            </div>
+          
+            <div class="finding-card">
+              <div class="finding-number">Finding 2</div>
+              <h4>Limitations of Quasimetric Method</h4>
+              <p>
+                Our experiments lead to two key conclusions.
+              </p>
+              <p>
+                <strong>(i)</strong> The QRL objective induces severe training instability in robotic manipulation tasks, highlighting the necessity of TD learning for achieving robust performance across diverse domains.
+              </p>
+              <p>
+                <strong>(ii)</strong> While GCIVL with IQE improves upon GCIVL with MLP by mitigating overgeneralization, the IQE itself can degrade performance in some tasks.
+              </p>
+            </div>
+          
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  
 <section class="section">
   <div class="container is-max-widescreen">
 
