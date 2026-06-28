@@ -1850,3 +1850,16 @@ body {
   margin-top: 0.65rem;
   text-align: center;
 }
+
+
+.finding-block {
+  margin-bottom: 1.1rem;
+}
+
+.finding-block p:first-child {
+  margin-bottom: 0.35rem;
+}
+
+.finding-block p:last-child {
+  margin-bottom: 0;
+}
