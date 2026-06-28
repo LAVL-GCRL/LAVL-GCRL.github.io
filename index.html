@@ -121,29 +121,41 @@
       <!-- Motivation. -->
       <div class="rows is-centered">
         <div class="row is-full-width">
-          <h2 class="title is-3">Motivation: Bottleneck of Goal-Conditioned Value Learning</h2>
+          <h2 class="title is-3">Motivation</h2>
+          <h3 class="title is-4 mobile-deployment-title">
+            The Bottleneck: Erroneous Value Generalization
+          </h3>
 
-          <div class="content has-text-justified">
+          <div class="motivation-highlight">
+            <span class="motivation-label">Key Challenge</span>
+            <p>
+              Goal-conditioned value functions can generalize incorrectly to unseen state-goal pairs, producing misleading value estimates in long-horizon offline GCRL tasks.
+            </p>
           </div>
 
-          <div class="overview-static">
+          <figure class="overview-static">
             <img
               src="media/figures/overgeneralization.png?v=1"
               class="interpolation-image"
-              alt="Overgeneralization in goal-conditioned value learning"
+              alt="Erroneous value generalization in offline goal-conditioned reinforcement learning"
             />
-          </div>
+            <figcaption>
+              (Left) Visualization of learned goal-conditioned values on antmaze-large-stitch. The red star denotes the goal position.
+              The GCIVL agent with MLP-parameterized value exhibits incorrect generalization, while QRL with IQE does not.
+              (Middle) Ablation experiments on value function architecture. The inductive bias of IQE effectively mitigates overgeneralization.
+              (Right) Performance in maze navigation and robotic manipulation tasks. No single method shows consistently high performance.
+            </figcaption>
+          </figure>
 
-          <br>
-          <br>
-
-          <div class="content has-text-justified">
+          <div class="content has-text-justified motivation-copy">
             <p>
-              <strong>Bottleneck of goal-conditioned value learning.</strong>
-              Offline goal-conditioned reinforcement learning aims to learn policies that can reach diverse goals from fixed datasets. However, goal-conditioned value functions can suffer from erroneous generalization, assigning high values to state-goal pairs that are not actually reachable from the offline data distribution.
+              Offline goal-conditioned reinforcement learning (GCRL) provides a practical framework for learning goal-reaching policies from fixed datasets. However, learning a reliable goal-conditioned value function remains challenging in long-horizon tasks.
             </p>
             <p>
-              This overgeneralization becomes especially problematic in long-horizon tasks, where small value errors can compound and mislead planning. LAVL addresses this bottleneck by aligning value learning with latent representations that capture meaningful goal-reaching structure.
+              We identify <strong>erroneous value generalization</strong> as a fundamental bottleneck: value functions may assign overly optimistic values to state-goal pairs that are not reliably supported by the offline data. These errors can mislead policy learning and planning, especially when reaching a goal requires many intermediate decisions.
+            </p>
+            <p>
+              LAVL addresses this issue by introducing an inductive bias that aligns value generalization with latent representations, and combines this with hierarchical planning for more reliable long-horizon goal reaching.
             </p>
           </div>
 
