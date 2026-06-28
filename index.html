@@ -126,37 +126,42 @@
             The Bottleneck: Erroneous Value Generalization
           </h3>
 
-          <div class="motivation-highlight">
-            <span class="motivation-label">Key Challenge</span>
-            <p>
-              Goal-conditioned value functions can generalize incorrectly to unseen state-goal pairs, producing misleading value estimates in long-horizon offline GCRL tasks.
-            </p>
-          </div>
-
           <figure class="overview-static">
             <img
               src="media/figures/overgeneralization.png?v=1"
               class="interpolation-image"
               alt="Erroneous value generalization in offline goal-conditioned reinforcement learning"
             />
-            <figcaption>
+          </figure>
+
+          <div class="motivation-highlight">
+            <span class="motivation-label">Overgeneralization and Limitations of Quasimetric Methods</span>
+            <p>
               (Left) Visualization of learned goal-conditioned values on antmaze-large-stitch. The red star denotes the goal position.
               The GCIVL agent with MLP-parameterized value exhibits incorrect generalization, while QRL with IQE does not.
               (Middle) Ablation experiments on value function architecture. The inductive bias of IQE effectively mitigates overgeneralization.
               (Right) Performance in maze navigation and robotic manipulation tasks. No single method shows consistently high performance.
-            </figcaption>
-          </figure>
+            </p>
+          </div>
 
           <div class="content has-text-justified motivation-copy">
-            <p>
-              Offline goal-conditioned reinforcement learning (GCRL) provides a practical framework for learning goal-reaching policies from fixed datasets. However, learning a reliable goal-conditioned value function remains challenging in long-horizon tasks.
-            </p>
-            <p>
-              We identify <strong>erroneous value generalization</strong> as a fundamental bottleneck: value functions may assign overly optimistic values to state-goal pairs that are not reliably supported by the offline data. These errors can mislead policy learning and planning, especially when reaching a goal requires many intermediate decisions.
-            </p>
-            <p>
-              LAVL addresses this issue by introducing an inductive bias that aligns value generalization with latent representations, and combines this with hierarchical planning for more reliable long-horizon goal reaching.
-            </p>
+            <div class="finding-block">
+              <p>
+                <strong>Finding 1: Structural Inductive Bias</strong>
+              </p>
+              <p>
+                While the standard MLP-parameterized value function suffers from value overgeneralization, value functions with structural inductive bias can mitigate overgeneralization.
+              </p>
+            </div>
+          
+            <div class="finding-block">
+              <p>
+                <strong>Finding 2: Limitations of Quasimetric Method</strong>
+              </p>
+              <p>
+                Our experiments lead to two key conclusions. (i) The QRL objective induces severe training instability in robotic manipulation tasks, highlighting the necessity of TD learning for achieving robust performance across diverse domains. (ii) While GCIVL with IQE improves upon GCIVL with MLP by mitigating overgeneralization, the IQE itself can degrade performance in some tasks.
+              </p>
+            </div>
           </div>
 
         </div>
