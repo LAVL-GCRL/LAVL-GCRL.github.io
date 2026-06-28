@@ -1784,3 +1784,69 @@ body {
   height: auto;
   width: 100%;
 }
+
+
+
+
+/* ============================================================
+   Motivation section
+   ============================================================ */
+
+.motivation-highlight {
+  background: linear-gradient(180deg, #f8fbff 0%, #eff6ff 100%);
+  border: 1px solid #bfdbfe;
+  border-left: 5px solid #1d4ed8;
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(30, 64, 175, 0.08);
+  color: #111;
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  margin: 1rem 0 1.2rem;
+  padding: 0.95rem 1.1rem;
+}
+
+.motivation-label {
+  color: #1d4ed8;
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+
+.motivation-highlight p {
+  font-size: 1.06rem;
+  font-weight: 600;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.overview-static {
+  margin: 1rem auto 0;
+  max-width: 100%;
+  text-align: center;
+}
+
+.overview-static img {
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(30, 64, 175, 0.08);
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.motivation-copy {
+  margin-top: 1.4rem;
+}
+
+
+
+.overview-static figcaption {
+  color: #444;
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin-top: 0.65rem;
+  text-align: center;
+}
