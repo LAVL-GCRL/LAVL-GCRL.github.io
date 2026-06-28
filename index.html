@@ -134,34 +134,33 @@
             />
           </figure>
 
-          <div class="motivation-highlight">
-            <span class="motivation-label">Overgeneralization and Limitations of Quasimetric Methods</span>
+          <div class="figure-caption-box">
+            <div class="figure-caption-title">
+              Overgeneralization and Limitations of Quasimetric Methods
+            </div>
             <p>
-              (Left) Visualization of learned goal-conditioned values on antmaze-large-stitch. The red star denotes the goal position.
-              The GCIVL agent with MLP-parameterized value exhibits incorrect generalization, while QRL with IQE does not.
-              (Middle) Ablation experiments on value function architecture. The inductive bias of IQE effectively mitigates overgeneralization.
-              (Right) Performance in maze navigation and robotic manipulation tasks. No single method shows consistently high performance.
+              (Left) Visualization of learned goal-conditioned values on antmaze-large-stitch. The red star denotes the goal position. The GCIVL agent with MLP-parameterized value exhibits incorrect generalization, while QRL with IQE does not. (Middle) Ablation experiments on value function architecture. The inductive bias of IQE effectively mitigates overgeneralization. (Right) Performance in maze navigation and robotic manipulation tasks. No single method shows consistently high performance.
             </p>
           </div>
 
-          <div class="content has-text-justified motivation-copy">
-            <div class="finding-block">
-              <p>
-                <strong>Finding 1: Structural Inductive Bias</strong>
-              </p>
+          <div class="findings-grid">
+
+            <div class="finding-card">
+              <div class="finding-number">Finding 1</div>
+              <h4>Structural Inductive Bias</h4>
               <p>
                 While the standard MLP-parameterized value function suffers from value overgeneralization, value functions with structural inductive bias can mitigate overgeneralization.
               </p>
             </div>
           
-            <div class="finding-block">
-              <p>
-                <strong>Finding 2: Limitations of Quasimetric Method</strong>
-              </p>
+            <div class="finding-card">
+              <div class="finding-number">Finding 2</div>
+              <h4>Limitations of Quasimetric Method</h4>
               <p>
                 Our experiments lead to two key conclusions. (i) The QRL objective induces severe training instability in robotic manipulation tasks, highlighting the necessity of TD learning for achieving robust performance across diverse domains. (ii) While GCIVL with IQE improves upon GCIVL with MLP by mitigating overgeneralization, the IQE itself can degrade performance in some tasks.
               </p>
             </div>
+          
           </div>
 
         </div>
