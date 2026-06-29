@@ -219,38 +219,92 @@
             </p>
           </div>
 
+          <h3 class="title is-4">Comparison of success rates for GCIVL</h3>
           <figure class="overview-static lan-figure">
             <img
               src="media/figures/LAN_GCIVL.png?v=1"
               class="interpolation-image"
               alt="Latent Alignment Network architecture for goal-conditioned value learning"
             />
-          
-            <figcaption class="figure-caption-box">
-              <div class="figure-caption-title">
-                Comparison of success rates for GCIVL agents with different value function architectures across four datasets.
-              </div>
-            </figcaption>
           </figure>
 
           <div class="lan-result-summary">
             <p>
-              <strong>LAN consistently improves goal-conditioned value learning.</strong>
-              Across maze navigation and robotic manipulation tasks, GCIVL with LAN
-              outperforms alternative value architectures, including IQE, MRN, Hilbert,
-              and MLP-based value functions.
-            </p>
-            <p>
-              These results suggest that asymmetric latent representations provide a
-              better balance between structured value generalization and optimization
-              stability.
+              GCIVL with <strong>LAN</strong> outperforms alternative architectures, including quasimetric architectures (IQE and MRN), the metric-based parameterization (Hilbert), and MLP.
+              Moreover, these performance gains are consistent across diverse tasks, addressing the limitations of existing value function architectures.
             </p>
           </div>
+
           
           <h3 class="title is-4">Value Learning with LAN</h3>
+          <div class="lan-learning-box">
+            <p>
+              We train the LAN-parameterized value function using an expectile TD objective,
+              following the IVL framework. This objective propagates sparse goal-reaching
+              rewards through temporal-difference learning while preserving the
+              distance-based structure imposed by LAN.
+            </p>
           
+            <div class="math-block">
+              \[
+                \mathcal{L}_{\mathrm{TD}}(V)
+                =
+                \mathbb{E}_{(s,s') \in \mathcal{D},\,
+                g \sim p_{\mathrm{mixed}}^{\mathcal{D}}(\cdot|s)}
+                \left[
+                \ell_2^{\kappa}
+                \left(
+                r(s,g) + \gamma \tilde{V}(s',g) - V(s,g)
+                \right)
+                \right]
+              \]
+            </div>
           
+            <p>
+              However, in long-horizon tasks, TD learning alone can produce sharp local
+              fluctuations in the value function because sparse rewards must propagate
+              over many steps. To stabilize value learning, we introduce a local continuity
+              regularization term that penalizes excessive value changes between
+              neighboring states.
+            </p>
+          
+            <div class="math-block">
+              \[
+                \mathcal{L}_{\mathrm{Reg}}(V)
+                =
+                \mathbb{E}_{(s,s') \in \mathcal{D},\,
+                g \sim p_{\mathrm{rand}}^{\mathcal{D}}(\cdot|s)}
+                \left[
+                \left(
+                \left( V(s,g) - V(s',g) \right)^2 - \delta^2
+                \right)_+
+                \right]
+              \]
+            </div>
+          
+            <p>
+              The final objective combines the expectile TD loss with the local continuity
+              regularizer:
+            </p>
+          
+            <div class="math-block compact-math">
+              \[
+                \mathcal{L}(V)
+                =
+                \mathcal{L}_{\mathrm{TD}}(V)
+                +
+                w_c \mathcal{L}_{\mathrm{Reg}}(V)
+              \]
+            </div>
+          
+            <p>
+              This regularization encourages locally smooth value functions while
+              preserving global Bellman consistency, leading to more stable value learning
+              in sparse-reward goal-conditioned tasks.
+            </p>
           </div>
+          
+          
 
         </div>
       </div>
