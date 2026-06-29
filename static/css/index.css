@@ -2094,3 +2094,39 @@ body {
   line-height: 1.55;
   color: #333;
 }
+
+
+.lavl-table {
+  border-top: 2px solid #222;
+  border-bottom: 2px solid #222;
+}
+
+.lavl-table thead {
+  border-bottom: 1.5px solid #222;
+}
+
+.lavl-table th,
+.lavl-table td {
+  padding: 0.55rem 0.8rem;
+}
+
+.lavl-table thead th {
+  text-align: center;
+}
+
+.lavl-table thead th:first-child {
+  text-align: left;
+}
+
+.lavl-table tbody th {
+  text-align: left;
+}
+
+.lavl-table tbody td {
+  text-align: center;
+}
+
+.lavl-table .performance-best-row th,
+.lavl-table .performance-best-row td {
+  font-weight: 700;
+}
