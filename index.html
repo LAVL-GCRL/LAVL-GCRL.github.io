@@ -193,8 +193,8 @@
               We propose <strong>Latent Alignment Network (LAN)</strong>, a value-function
               architecture that aligns goal-conditioned value estimates with the geometry
               of a learned latent space. The core idea is to represent the goal-conditioned
-              value as the negative Euclidean distance between a state embedding and a goal
-              embedding.
+              value as <strong>the negative Euclidean distance between a state embedding and a goal
+              embedding</strong>.
             </p>
           
             <div class="math-block">
@@ -210,16 +210,9 @@
               representations that use a shared embedding function, LAN adopts asymmetric
               representations, where \(\varphi_S \neq \varphi_G\).
             </p>
-          
-            <p>
-              This asymmetry relaxes the strict metric structure while preserving a useful
-              distance-based inductive bias, providing additional flexibility for stable
-              goal-conditioned value learning across both maze navigation and robotic
-              manipulation tasks.
-            </p>
           </div>
 
-          <h3 class="title is-4">Comparison of success rates for GCIVL</h3>
+          <h3 class="title is-4">Comparison of Success Rates for GCIVL with Different Architectures</h3>
           <figure class="overview-static lan-figure">
             <img
               src="media/figures/LAN_GCIVL.png?v=1"
@@ -261,11 +254,8 @@
             </div>
           
             <p>
-              However, in long-horizon tasks, TD learning alone can produce sharp local
-              fluctuations in the value function because sparse rewards must propagate
-              over many steps. To stabilize value learning, we introduce a local continuity
-              regularization term that penalizes excessive value changes between
-              neighboring states.
+              However, in long-horizon tasks, TD learning alone can produce sharp local fluctuations in the value function because sparse rewards must propagate over many steps.
+              To stabilize value learning, we introduce a <strong>local continuity regularization term</strong> that penalizes excessive value changes between neighboring states.
             </p>
           
             <div class="math-block">
@@ -283,8 +273,7 @@
             </div>
           
             <p>
-              The final objective combines the expectile TD loss with the local continuity
-              regularizer:
+              The final objective combines the expectile TD loss with the local continuity regularizer:
             </p>
           
             <div class="math-block compact-math">
@@ -298,17 +287,31 @@
             </div>
           
             <p>
-              This regularization encourages locally smooth value functions while
-              preserving global Bellman consistency, leading to more stable value learning
-              in sparse-reward goal-conditioned tasks.
+              This regularization encourages locally smooth value functions while preserving global Bellman consistency, <strong>leading to more stable value learning in sparse-reward goal-conditioned tasks</strong>.
             </p>
           </div>
-          
-          
 
+          
+          <h3 class="title is-4">Comparison of Success Rates for LAVL with Different Architectures</h3>
+          <figure class="overview-static lan-figure">
+            <img
+              src="media/figures/LAN_LAVL.png?v=1"
+              class="interpolation-image"
+              alt="LAVL for goal-conditioned value learning"
+            />
+          </figure>
+
+          <div class="lan-result-summary">
+            <p>
+              The MLP variant denotes the HIQL baseline.
+              On maze navigation tasks, the IQE, MRN, and Hilbert variants outperform the MLP baseline, and achieve performance comparable to LAN in antmaze-giant.
+              These results suggest that <strong>architectural inductive biases can improve long-horizon value learning, supporting our Findings 1</strong>.
+              However, in the scene dataset, LAN achieves an 88% success rate, whereas IQE, MRN, and Hilbert remain below 20%, and the MLP baseline stays below 40%.
+              Overall, these results indicate that <strong>LAN outperforms existing quasimetric architectures within the same hierarchical framework</strong>.
+            </p>
+          </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -319,8 +322,88 @@
   <div class="container is-max-widescreen">
 
     <div class="rows">
-      <h2 class="title is-3">Real-World Deployments</h2>
-      <h3 class="title is-4 mobile-deployment-title">Bimanual Mobile Manipulation</h3>
+      <h2 class="title is-3">Experiments</h2>
+
+      <div class="deployment-performance">
+        <h3 class="title is-4">Long-Horizon Tasks</h3>
+      
+        <article class="performance-card">
+          <h4>Long-Horizon Maze Navigation</h4>
+      
+          <div class="performance-table-wrap">
+            <table class="performance-table lavl-table">
+              <thead>
+                <tr>
+                  <th>Algorithm</th>
+                  <th>Medium</th>
+                  <th>Large</th>
+                  <th>Giant</th>
+                  <th>Rel. Drop (%) ↓</th>
+                </tr>
+              </thead>
+      
+              <tbody>
+                <tr class="performance-best-row">
+                  <th>LAVL (ours)</th>
+                  <td>94</td>
+                  <td>85</td>
+                  <td>85</td>
+                  <td>9.6%</td>
+                </tr>
+      
+                <tr>
+                  <th>OTA</th>
+                  <td>89</td>
+                  <td>78</td>
+                  <td>68</td>
+                  <td>23.1%</td>
+                </tr>
+      
+                <tr>
+                  <th>CGCIVL</th>
+                  <td>84</td>
+                  <td>66</td>
+                  <td>35</td>
+                  <td>58.3%</td>
+                </tr>
+      
+                <tr>
+                  <th>QRL</th>
+                  <td>58</td>
+                  <td>45</td>
+                  <td>22</td>
+                  <td>61.7%</td>
+                </tr>
+      
+                <tr>
+                  <th>HIQL</th>
+                  <td>87</td>
+                  <td>51</td>
+                  <td>21</td>
+                  <td>75.4%</td>
+                </tr>
+      
+                <tr>
+                  <th>GCIVL</th>
+                  <td>48</td>
+                  <td>16</td>
+                  <td>0</td>
+                  <td>100.0%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      
+          <p class="performance-caption">
+            Average success rate (%) for different maze sizes in OGBench.
+            Relative Drop (Rel. Drop) denotes the percentage decrease in success rate from <strong>medium</strong> to <strong>giant</strong>.
+            These results demonstrate that LAVL maintains a robust success rate as the horizon increases, with only minimal performance degradation.
+          </p>
+        </article>
+      </div>
+
+
+      
       <div class="mobile-deployment-grid">
         <article class="mobile-deployment-task">
           <h4>Turn On Radio</h4>
