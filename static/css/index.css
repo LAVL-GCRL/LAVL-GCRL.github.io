@@ -2037,3 +2037,28 @@ body {
 .lan-result-summary p:last-child {
   margin-bottom: 0;
 }
+
+
+.lan-learning-box {
+  margin: 1.2rem 0 1.8rem;
+  padding: 1.4rem 1.6rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+.lan-learning-box p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #333;
+  margin-bottom: 0.8rem;
+}
+
+.lan-learning-box .math-block {
+  font-size: 1.05rem;
+}
+
+.lan-learning-box .compact-math {
+  font-size: 1.15rem;
+}
