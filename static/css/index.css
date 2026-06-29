@@ -2062,3 +2062,35 @@ body {
 .lan-learning-box .compact-math {
   font-size: 1.15rem;
 }
+
+.lavl-table {
+  border-top: 2px solid #222;
+  border-bottom: 2px solid #222;
+}
+
+.lavl-table thead {
+  border-bottom: 1.5px solid #222;
+}
+
+.lavl-table th,
+.lavl-table td {
+  text-align: center;
+  padding: 0.55rem 0.8rem;
+}
+
+.lavl-table th:first-child,
+.lavl-table td:first-child {
+  text-align: left;
+}
+
+.lavl-table .performance-best-row th,
+.lavl-table .performance-best-row td {
+  font-weight: 700;
+}
+
+.performance-caption {
+  margin-top: 0.9rem;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: #333;
+}
