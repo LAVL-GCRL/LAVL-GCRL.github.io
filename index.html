@@ -155,7 +155,7 @@
               <div class="finding-number">Finding 1</div>
               <h4>Structural Inductive Bias</h4>
               <p>
-                While the standard MLP-parameterized value function suffers from value overgeneralization, value functions with structural inductive bias can mitigate overgeneralization.
+                While the standard MLP-parameterized value function suffers from value overgeneralization, value functions with <strong>structural inductive bias</strong> can mitigate overgeneralization.
               </p>
             </div>
           
@@ -166,18 +166,15 @@
                 Our experiments lead to two key conclusions.
               </p>
               <p>
-                <strong>(i)</strong> The QRL objective induces severe training instability in robotic manipulation tasks, highlighting the necessity of TD learning for achieving robust performance across diverse domains.
+                <strong>(i)</strong> The QRL objective induces severe training instability in robotic manipulation tasks, highlighting <strong>the necessity of TD learning</strong> for achieving robust performance across diverse domains.
               </p>
               <p>
-                <strong>(ii)</strong> While GCIVL with IQE improves upon GCIVL with MLP by mitigating overgeneralization, the IQE itself can degrade performance in some tasks.
+                <strong>(ii)</strong> While GCIVL with IQE improves upon GCIVL with MLP by mitigating overgeneralization, <strong>the IQE itself can degrade performance</strong> in some tasks.
               </p>
             </div>
-          
           </div>
-
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -186,63 +183,44 @@
 
 <section class="section">
   <div class="container is-max-widescreen">
-
     <div class="rows">
-
-      <!-- Motivation. -->
       <div class="rows is-centered">
         <div class="row is-full-width">
           <h2 class="title is-3">Latent-Aligned Value Learning (LAVL)</h2>
-          <h3 class="title is-4 mobile-deployment-title">
-            Latent Alignment Network (LAN)
-          </h3>
-
-          <figure class="overview-static">
-            <img
-              src="media/figures/overgeneralization.png?v=1"
-              class="interpolation-image"
-              alt="Erroneous value generalization in offline goal-conditioned reinforcement learning"
-            />
-          </figure>
-
-          <div class="figure-caption-box">
-            <div class="figure-caption-title">
-              Overgeneralization in Goal-Conoditioned Value Learning
+          <h3 class="title is-4">Latent Alignment Network (LAN)</h3>
+          <div class="lan-explanation-box">
+            <p>
+              We propose <strong>Latent Alignment Network (LAN)</strong>, a value-function
+              architecture that aligns goal-conditioned value estimates with the geometry
+              of a learned latent space. The core idea is to represent the goal-conditioned
+              value as the negative Euclidean distance between a state embedding and a goal
+              embedding.
+            </p>
+          
+            <div class="math-block">
+              \[
+                V(s, g) = - \left\| \varphi_S(s) - \varphi_G(g) \right\|_2
+              \]
             </div>
+          
             <p>
-              <strong>(Left)</strong> Visualization of learned goal-conditioned values on antmaze-large-stitch. The red star denotes the goal position. The GCIVL agent with MLP-parameterized value exhibits incorrect generalization, while QRL with IQE does not.
+              Here, \(\varphi_S : \mathcal{S} \rightarrow \mathbb{R}^d\) and
+              \(\varphi_G : \mathcal{G} \rightarrow \mathbb{R}^d\) denote the state and
+              goal representation networks, respectively. Unlike metric-based
+              representations that use a shared embedding function, LAN adopts asymmetric
+              representations, where \(\varphi_S \neq \varphi_G\).
             </p>
+          
             <p>
-              <strong>(Middle)</strong> Ablation experiments on value function architecture. The inductive bias of IQE effectively mitigates overgeneralization.
-            </p>
-            <p>
-              <strong>(Right)</strong> Performance in maze navigation and robotic manipulation tasks. No single method shows consistently high performance.
+              This asymmetry relaxes the strict metric structure while preserving a useful
+              distance-based inductive bias, providing additional flexibility for stable
+              goal-conditioned value learning across both maze navigation and robotic
+              manipulation tasks.
             </p>
           </div>
 
-          <div class="findings-grid">
-
-            <div class="finding-card">
-              <div class="finding-number">Finding 1</div>
-              <h4>Structural Inductive Bias</h4>
-              <p>
-                While the standard MLP-parameterized value function suffers from value overgeneralization, value functions with structural inductive bias can mitigate overgeneralization.
-              </p>
-            </div>
+          <h3 class="title is-4">Value Learning with LAN</h3>
           
-            <div class="finding-card">
-              <div class="finding-number">Finding 2</div>
-              <h4>Limitations of Quasimetric Method</h4>
-              <p>
-                Our experiments lead to two key conclusions.
-              </p>
-              <p>
-                <strong>(i)</strong> The QRL objective induces severe training instability in robotic manipulation tasks, highlighting the necessity of TD learning for achieving robust performance across diverse domains.
-              </p>
-              <p>
-                <strong>(ii)</strong> While GCIVL with IQE improves upon GCIVL with MLP by mitigating overgeneralization, the IQE itself can degrade performance in some tasks.
-              </p>
-            </div>
           
           </div>
 
