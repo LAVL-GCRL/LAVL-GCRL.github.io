@@ -403,6 +403,7 @@
           </p>
         </article>
 
+        <br>
 
         <h3 class="title is-4">Stitching Trajectories</h3>
 
@@ -441,7 +442,6 @@
           <p>
             <strong>Continuity Regularization:</strong> continuity regularization yields clear performance gains on challenging tasks, by stabilizing local fluctuation in the value function.
             Its effect is most pronounced on pointmaze-giant, where the success rate increases from 35% to 95%, and it also improves performance onantmaze-giant and scene.
-            Overall, the results demonstrate that continuity regularization improves performance in a task-dependent manner.
           </p>
         </div>
 
@@ -458,11 +458,9 @@
         
         <div class="lan-result-summary">
           <p>
-            OTA and Eik-HiQRL train a separate high-level value function to estimate high-level advantages, while maintaining HIQL’s low-level policy and subgoal representation.
-            To explicitly compare these two design paradigms, we implement a variant of LAVL, termed <strong>LAVL-HV</strong> (Hierarchical Value), which uses separate value functions for the highlevel and low-level policies.
+            We implement a variant of LAVL, termed <strong>LAVL-HV</strong> (Hierarchical Value), which uses separate value functions for the highlevel and low-level policies.
             Given that LAVL-HV differs from HIQL only by replacing the high-level value function, this result indicates that the value function of LAVL provides a more informative high-level learning signal for high-level policy learning.
             Moreover, LAVL consistently outperforms LAVL-HV, suggesting that a unitary LAVL value function also benefits low-level policy learning through tighter coupling with the subgoal representation.
-            As a result, LAVL eliminates the need for an additional low-level value function, avoiding the associated computational overhead and hyperparameter tuning, while achieving superior performance.
           </p>
         </div>
         
