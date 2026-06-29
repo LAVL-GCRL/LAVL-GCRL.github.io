@@ -2130,3 +2130,18 @@ body {
 .lavl-table .performance-best-row td {
   font-weight: 700;
 }
+
+.experiment-figure {
+  margin: 1.2rem auto 1.4rem;
+  max-width: 100%;
+  text-align: center;
+}
+
+.experiment-figure img {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+  height: auto;
+  width: 100%;
+}
